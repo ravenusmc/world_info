@@ -3,6 +3,7 @@
 
 #Files which will be imported.
 from valid import *
+from support import *
 
 #This is the main function of the program which will launch it once the program
 #is executed.
@@ -21,11 +22,22 @@ def main_menu():
     print('1. Use Program')
     print('2. Learn about this program')
     print('3. Quit')
+    support = Support()
     choice = int(input('What is your choice? '))
     while not valid_one(choice):
         print('That is not a valid choice!')
         choice = int(input('What is your choice? '))
     if choice == 1:
-        pass
+        data_options()
+    elif choice == 2:
+        support.help()
+        main_menu()
+    elif choice == 3:
+        support.quit()
+
+#This function will allow the user to select what data they want to look at
+def data_options():
+    print('\033c')
+
 
 main()
