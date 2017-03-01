@@ -38,6 +38,7 @@ def main_menu():
 #This function will allow the user to select what data they want to look at
 def data_options():
     print('\033c')
+    print("1.")
 
 
 main()
