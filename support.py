@@ -1,7 +1,11 @@
 #This file will contain the support class.
 
+#The main purpose of this class is to have methods that I can call that will
+#provide support to the running of the main program.
 class Support():
 
+    #This method will simply provide the user with information if they choose to
+    #learn about this program. 
     def help(self):
         print('\033c')
         print('''
