@@ -5,7 +5,7 @@
 class Support():
 
     #This method will simply provide the user with information if they choose to
-    #learn about this program. 
+    #learn about this program.
     def help(self):
         print('\033c')
         print('''
@@ -17,6 +17,7 @@ class Support():
         ''')
         input('Press enter to return to main menu ')
 
+    #This method will provide the user with options to quit out of the program. 
     def quit(self):
         print('\033c')
         print('\t************************************************')
