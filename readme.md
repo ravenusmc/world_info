@@ -2,8 +2,8 @@
 ## Intro
 
 This is a Python/Panda's project that will look at world data. Like most of my
-projects, I got the data from Kaggle. However, the information was displayed
-on the home page so I do not have a specific link to the data online.
+projects, I got the data from Kaggle. The specific link, to the page, is the
+following: https://www.kaggle.com/joniarroba/65-world-indexes-gathered. 
 
 As I have stated in a lot of my previous projects, I have a background in
 international relations and political science so all of my projects try to have

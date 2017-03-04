@@ -42,9 +42,8 @@ def main_menu():
 #This function will allow the user to select what data they want to look at
 def data_options():
     print('\033c')
-    print("1.")
-    data = pd.read_csv('Kaggle.csv')
-    print(data)
+    print("1. Look at Gini index")
+    choice = int(input("What is your choice? "))
 
 
 main()
