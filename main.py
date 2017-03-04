@@ -1,6 +1,10 @@
 #This is the main file for the project. All of functions to run the program
 #will be located in this file.
 
+#import libraries for use in this project.
+import pandas as pd
+import numpy as np
+
 #Files which will be imported.
 from valid import *
 from support import *
@@ -39,6 +43,8 @@ def main_menu():
 def data_options():
     print('\033c')
     print("1.")
+    data = pd.read_csv('Kaggle.csv')
+    print(data)
 
 
 main()
