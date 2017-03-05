@@ -9,5 +9,18 @@ import numpy as np
 from valid import *
 from support import *
 
-data = pd.read_csv('Kaggle.csv')
-print(data)
+# data = pd.read_csv('Kaggle.csv')
+# print(data)
+
+class Data():
+
+    def map_data(self):
+        data = pd.read_csv('Kaggle.csv')
+        #print(data)
+        country_list = []
+        # data = data['Gini_coefficient']
+        state = data['State'][0]
+        print(data)
+
+data = Data()
+data.map_data()
