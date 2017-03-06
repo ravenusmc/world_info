@@ -8,6 +8,7 @@ import numpy as np
 #Files which will be imported.
 from valid import *
 from support import *
+from data import *
 
 #This is the main function of the program which will launch it once the program
 #is executed.
@@ -42,8 +43,17 @@ def main_menu():
 #This function will allow the user to select what data they want to look at
 def data_options():
     print('\033c')
+    data = Data()
     print("1. Look at Gini index")
+    print("2. Female Suicide rate")
     choice = int(input("What is your choice? "))
+    if choice == 1:
+        user_selection = 'Gini_coefficient'
+        data.map_data(user_selection)
+    elif choice == 2:
+        user_selection = 'Female_Suicide_Rate'
+        data.map_data(user_selection)
+
 
 
 main()

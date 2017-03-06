@@ -18,10 +18,8 @@ from support import *
 
 class Data():
 
-    ### This function will be used to convert the country names to their two letter code.
-
-
-    def map_data(self):
+    def map_data(self, user_selection):
+        ### This function will be used to convert the country names to their two letter code.
         def country_name_convert(country_list):
             countries = {}
             for country in pycountry.countries:
@@ -33,7 +31,7 @@ class Data():
         #look at.
         data_list = []
         state_list = []
-        info = data['Gini_coefficient']
+        info = data[user_selection]
         state = data['State']
         #I am now looping through the data and then appending that information
         #into the list that I created above.
@@ -57,28 +55,37 @@ class Data():
         while count < len(country_codes):
             country_dictionary[new_countrylist[count]] = data_list[count]
             count += 1
-        data_1, data_2, data_3 = {},{},{}
+        data_1, data_2, data_3, data_4, data_5 = {},{},{},{},{}
+        #I need to break up the data points into five different intervals.
+        #To do this I need to find the max and min of the data_list
+        max_value = max(data_list)
+        min_value = min(data_list)
+        #Once I have the max and min I can find the length
+        length = max_value - min_value
+        #I then divide the length by 5 for the number of dictionaries that I
+        #have created above: data_1, data_2 etc.
+        parts = length / 5
         for state, information in country_dictionary.items():
-            if information <= 33:
+            if information <= parts:
                 data_1[state] = information
-            elif information > 33 and information <= 66:
+            elif information > parts and information <= parts * 2:
                 data_2[state] = information
-            else:
+            elif information > parts * 2 and information <= parts * 3:
                 data_3[state] = information
+            elif information > parts * 3 and information <= parts * 4:
+                data_4[state] = information
+            else:
+                data_5[state] = information
 
         wm_style = RotateStyle('#336699')
         wm = World(style=wm_style)
-        wm.title = "Data "
-        wm.add('0-33', data_1)
-        wm.add('34-66', data_2)
-        wm.add('67-100', data_3)
+        wm.title = "Map of " + user_selection + ' Data'
+        wm.add(str(0) + '-' + str(parts), data_1)
+        wm.add(str(parts) + '-' + str(parts * 2), data_2)
+        wm.add(str(parts * 2) + '-' + str(parts * 3), data_3)
+        wm.add(str(parts * 3) + '-' + str(parts * 4), data_4)
+        wm.add(str(parts * 4) + '-' + str(parts * 5), data_5)
         wm.render_to_file('map.svg')
-        svg_map_help()
 
-
-
-
-
-
-data = Data()
-data.map_data()
+# data = Data()
+# data.map_data()
