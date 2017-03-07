@@ -44,14 +44,45 @@ def main_menu():
 def data_options():
     print('\033c')
     data = Data()
-    print("1. Look at Gini index")
-    print("2. Female Suicide rate")
+    print("1. Gini Index")
+    print("2. Female Suicide Rate")
+    print("3. Male Suicide Rate")
+    print("4. Homicide Rate")
+    print('5. Internet Usage')
+    print('6. Mean years of schooling')
+    print('7. Prison Population')
+    print('8. Public expenditure on Education as percentage of GDP')
+    print('9. TB infections')
     choice = int(input("What is your choice? "))
+    while not data_valid(choice):
+        print('That is not a valid selection!')
+        choice = int(input("What is your choice? "))
     if choice == 1:
         user_selection = 'Gini_coefficient'
         data.map_data(user_selection)
     elif choice == 2:
         user_selection = 'Female_Suicide_Rate'
+        data.map_data(user_selection)
+    elif choice == 3:
+        user_selection = 'Male_Suicide'
+        data.map_data(user_selection)
+    elif choice == 4:
+        user_selection = 'Homicide_rate'
+        data.map_data(user_selection)
+    elif choice == 5:
+        user_selection = 'Internet_users'
+        data.map_data(user_selection)
+    elif choice == 6:
+        user_selection = 'Mean_years'
+        data.map_data(user_selection)
+    elif choice == 7:
+        user_selection = 'Prison_population'
+        data.map_data(user_selection)
+    elif choice == 8:
+        user_selection = 'Public_expenditure_on_education'
+        data.map_data(user_selection)
+    elif choice == 9:
+        user_selection = 'Tuberculosis_rate'
         data.map_data(user_selection)
 
 
