@@ -13,11 +13,15 @@ from pygal.style import RotateStyle
 from valid import *
 from support import *
 
-# data = pd.read_csv('Kaggle.csv')
-# print(data)
-
+#This class will work with the data in this file. I admit that this is a fairly
+#long way to deal with this data-I have one super long method that has another
+#function essentially within it! Not what I like.
 class Data():
 
+    #This method is what will process the data and make the SVG map from it. The
+    #country_name_convert function I do not like at all having it within this
+    #method. However, I want to finish this project and just have it there
+    #for the time being.
     def map_data(self, user_selection):
         ### This function will be used to convert the country names to their two letter code.
         def country_name_convert(country_list):
@@ -65,6 +69,7 @@ class Data():
         #I then divide the length by 5 for the number of dictionaries that I
         #have created above: data_1, data_2 etc.
         parts = length / 5
+        #I use a for loop to place the data into the right intervals
         for state, information in country_dictionary.items():
             if information <= parts:
                 data_1[state] = information
@@ -76,7 +81,14 @@ class Data():
                 data_4[state] = information
             else:
                 data_5[state] = information
-
+        print('''
+        Please note to look at the data, you have to open up the SVG map in
+        Chrome. The file should be entitled map.svg. The program will return to
+        the main menu so you must open up the file manually. 
+        ''')
+        input('Press enter to continue ')
+        #This code here is what will actually make the SVG maps for the data that
+        #the user wants to look at.
         wm_style = RotateStyle('#336699')
         wm = World(style=wm_style)
         wm.title = "Map of " + user_selection + ' Data'
@@ -86,6 +98,3 @@ class Data():
         wm.add(str(parts * 3) + '-' + str(parts * 4), data_4)
         wm.add(str(parts * 4) + '-' + str(parts * 5), data_5)
         wm.render_to_file('map.svg')
-
-# data = Data()
-# data.map_data()

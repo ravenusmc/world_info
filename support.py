@@ -14,10 +14,12 @@ class Support():
         the user wants to look at a states GDP they will see a world map that
         is color coded based on what they see. This is really not a complex
         program but provides more practice on showing data on a world map.
+        Finally, I will say that the most interesting map was from the prison
+        population data set....
         ''')
         input('Press enter to return to main menu ')
 
-    #This method will provide the user with options to quit out of the program. 
+    #This method will provide the user with options to quit out of the program.
     def quit(self):
         print('\033c')
         print('\t************************************************')

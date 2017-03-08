@@ -60,31 +60,39 @@ def data_options():
     if choice == 1:
         user_selection = 'Gini_coefficient'
         data.map_data(user_selection)
+        main_menu()
     elif choice == 2:
         user_selection = 'Female_Suicide_Rate'
         data.map_data(user_selection)
+        main_menu()
     elif choice == 3:
         user_selection = 'Male_Suicide'
         data.map_data(user_selection)
+        main_menu()
     elif choice == 4:
         user_selection = 'Homicide_rate'
         data.map_data(user_selection)
+        main_menu()
     elif choice == 5:
         user_selection = 'Internet_users'
         data.map_data(user_selection)
+        main_menu()
     elif choice == 6:
         user_selection = 'Mean_years'
         data.map_data(user_selection)
+        main_menu()
     elif choice == 7:
         user_selection = 'Prison_population'
         data.map_data(user_selection)
+        main_menu()
     elif choice == 8:
         user_selection = 'Public_expenditure_on_education'
         data.map_data(user_selection)
+        main_menu()
     elif choice == 9:
         user_selection = 'Tuberculosis_rate'
         data.map_data(user_selection)
+        main_menu()
 
-
-
+#This is what will launch the main program.
 main()
