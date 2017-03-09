@@ -18,18 +18,10 @@ from support import *
 #function essentially within it! Not what I like.
 class Data():
 
-    #This method is what will process the data and make the SVG map from it. The
-    #country_name_convert function I do not like at all having it within this
-    #method. However, I want to finish this project and just have it there
-    #for the time being.
+    #This method is what will process the data and make the SVG map from it. 
     def map_data(self, user_selection):
-        ### This function will be used to convert the country names to their two letter code.
-        def country_name_convert(country_list):
-            countries = {}
-            for country in pycountry.countries:
-                countries[country.name] = country.alpha2
-            country_codes = [countries.get(country, 'Unknown code') for country in country_list]
-            return country_codes
+        #This object will be used to call one method from the support class.
+        support = Support()
         data = pd.read_csv('Kaggle.csv')
         #These two lists will hold all of my data for what the user wants to
         #look at.
@@ -43,9 +35,9 @@ class Data():
             data_list.append(i)
         for s in state:
             state_list.append(s)
-        #Function to convert country names to 2 letter abbreviations. See country_name_convert function at the top
-        #to see how it works-the only piece of code that I got all from stack overflow.
-        country_codes = country_name_convert(state_list)
+        #Function to convert country names to 2 letter abbreviations. See country_name_convert function in the
+        #support.py file to see how it works. It is the only piece of code that I got all from stack overflow.
+        country_codes = support.country_name_convert(state_list)
         #Another list is created to hold all of the country abbreviations which have been converted to lowercase.
         new_countrylist = []
         #I have to convert all of the country codes to lowercase-only way the wm.add method seems to work.
@@ -84,7 +76,7 @@ class Data():
         print('''
         Please note to look at the data, you have to open up the SVG map in
         Chrome. The file should be entitled map.svg. The program will return to
-        the main menu so you must open up the file manually. 
+        the main menu so you must open up the file manually.
         ''')
         input('Press enter to continue ')
         #This code here is what will actually make the SVG maps for the data that

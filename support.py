@@ -1,5 +1,8 @@
 #This file will contain the support class.
 
+#Importing files that this class will need to run.
+import pycountry
+
 #The main purpose of this class is to have methods that I can call that will
 #provide support to the running of the main program.
 class Support():
@@ -28,3 +31,11 @@ class Support():
         print('\t************************************************')
         print()
         input('\tPress enter to quit ')
+
+    ### This method will be used to convert the country names to their two letter code.
+    def country_name_convert(self,country_list):
+        countries = {}
+        for country in pycountry.countries:
+            countries[country.name] = country.alpha2
+        country_codes = [countries.get(country, 'Unknown code') for country in country_list]
+        return country_codes
